@@ -1,0 +1,25 @@
+#thymeleaf
+spring:
+  thymeleaf:
+    cache: false
+    encoding: UTF-8
+    mode: HTML
+    prefix: classpath:/templates/
+    suffix: .html
+#upload
+  servlet:
+    multipart:
+      maxFileSize: 10MB
+      maxRequestSize: 30MB
+#tomcat,
+server:
+  tomcat:
+    connection-timeout: 20000
+    max-http-form-post-size: 30MB
+#error
+  error:
+    include-stacktrace: always
+#errorlog
+logging:
+  level:
+    org.springframework.web: trace
