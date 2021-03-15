@@ -45,9 +45,13 @@ public class FileController {
             if (list.isEmpty()) {
                 continue;
             }
+
             // 文件名
             String fileName = multipartFile.getOriginalFilename();
             System.out.println("文件名： " + fileName);
+            // file size:
+            Long length = multipartFile.getSize();
+            System.out.println("files size :"+length);
 
             // 文件后缀
             int lastDot = fileName.lastIndexOf(".");

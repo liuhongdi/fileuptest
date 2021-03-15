@@ -18,7 +18,8 @@ import java.nio.charset.StandardCharsets;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.fileUpload;
+//import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.fileUpload;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.multipart;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
@@ -44,7 +45,7 @@ class FileControllerTest {
         MockMultipartFile mFile3 = new MockMultipartFile("files", "3.jpg",
                 MediaType.TEXT_PLAIN_VALUE, new FileInputStream(file3));
 
-        MvcResult mvcResult = mockMvc.perform(fileUpload("/file/uploaded")
+        MvcResult mvcResult = mockMvc.perform(multipart("/file/uploaded")
                 .file(mFile2)
                 .file(mFile3)
                 .param("key1", key1)
